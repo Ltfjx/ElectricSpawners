@@ -38,14 +38,14 @@ public class ElectricSpawner extends SimpleSlimefunItem<BlockTicker> implements 
     public ElectricSpawner(Category category, String mob, EntityType type, Research research) {
         // @formatter:off
         super(category, new SlimefunItemStack("ELECTRIC_SPAWNER_" + mob, "db6bd9727abb55d5415265789d4f2984781a343c68dcaf57f554a5e9aa1cd", 
-                "&e電力生怪磚 &7(" + ChatUtils.humanize(mob) + ")",
+                "&e电力刷怪笼 &7(" + ChatUtils.humanize(mob) + ")",
                 "",
                 "&8\u21E8 &e\u26A1 &7最大生成上限: 6",
-                "&8\u21E8 &e\u26A1 &7512 J 緩衝電力",
+                "&8\u21E8 &e\u26A1 &7512 J 缓冲电力",
                 "&8\u21E8 &e\u26A1 &7240 J/生物"
         ), RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] { 
                 null, SlimefunItems.PLUTONIUM, null, 
-                SlimefunItems.ELECTRIC_MOTOR, new CustomItem(Material.SPAWNER, "&b已修復的生怪磚", "&7類型: &b" + ChatUtils.humanize(type.toString())), SlimefunItems.ELECTRIC_MOTOR,
+                SlimefunItems.ELECTRIC_MOTOR, new CustomItem(Material.SPAWNER, "&b已修复的刷怪笼", "&7类型: &b" + ChatUtils.humanize(type.toString())), SlimefunItems.ELECTRIC_MOTOR,
                 SlimefunItems.BLISTERING_INGOT_3, SlimefunItems.LARGE_CAPACITOR, SlimefunItems.BLISTERING_INGOT_3
         });
         // @formatter:on
@@ -54,7 +54,7 @@ public class ElectricSpawner extends SimpleSlimefunItem<BlockTicker> implements 
 
         addItemHandler(onBlockPlace());
 
-        new BlockMenuPreset(getId(), "&c電力生怪磚") {
+        new BlockMenuPreset(getId(), "&c电力刷怪笼") {
 
             @Override
             public void init() {
@@ -68,14 +68,14 @@ public class ElectricSpawner extends SimpleSlimefunItem<BlockTicker> implements 
             @Override
             public void newInstance(BlockMenu menu, Block b) {
                 if (!BlockStorage.hasBlockInfo(b) || BlockStorage.getLocationInfo(b.getLocation(), "enabled") == null || BlockStorage.getLocationInfo(b.getLocation(), "enabled").equals("false")) {
-                    menu.replaceExistingItem(4, new CustomItem(Material.GUNPOWDER, "&7已啟用: &4\u2718", "", "&e> 點擊啟用此機器"));
+                    menu.replaceExistingItem(4, new CustomItem(Material.GUNPOWDER, "&7已启用: &4\u2718", "", "&e> 点击启用此机器"));
                     menu.addMenuClickHandler(4, (p, slot, item, action) -> {
                         BlockStorage.addBlockInfo(b, "enabled", "true");
                         newInstance(menu, b);
                         return false;
                     });
                 } else {
-                    menu.replaceExistingItem(4, new CustomItem(Material.REDSTONE, "&7已啟用: &2\u2714", "", "&e> 點擊關閉此機器"));
+                    menu.replaceExistingItem(4, new CustomItem(Material.REDSTONE, "&7已启用: &2\u2714", "", "&e> 点击关闭此机器"));
                     menu.addMenuClickHandler(4, (p, slot, item, action) -> {
                         BlockStorage.addBlockInfo(b, "enabled", "false");
                         newInstance(menu, b);

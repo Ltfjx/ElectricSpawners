@@ -24,8 +24,8 @@ public class ElectricSpawners extends JavaPlugin implements Listener, SlimefunAd
         // Setting up bStats
         //new Metrics(this, 6163);
 
-        Category category = new Category(new NamespacedKey(this, "electric_spawners"), new CustomItem(SkullItem.fromHash("db6bd9727abb55d5415265789d4f2984781a343c68dcaf57f554a5e9aa1cd"), "&9電力生怪磚"));
-        Research research = new Research(new NamespacedKey(this, "electric_spawners"), 4820, "頭顱生怪磚?", 30);
+        Category category = new Category(new NamespacedKey(this, "electric_spawners"), new CustomItem(SkullItem.fromHash("db6bd9727abb55d5415265789d4f2984781a343c68dcaf57f554a5e9aa1cd"), "&9电力刷怪笼"));
+        Research research = new Research(new NamespacedKey(this, "electric_spawners"), 4820, "头颅刷怪笼?", 30);
 
         for (String mob : cfg.getStringList("mobs")) {
             try {
@@ -48,6 +48,6 @@ public class ElectricSpawners extends JavaPlugin implements Listener, SlimefunAd
 
     @Override
     public String getBugTrackerURL() {
-        return "https://github.com/xMikux/ElectricSpawners/issues";
+        return "https://github.com/Ltfjx/ElectricSpawners/issues";
     }
 }
